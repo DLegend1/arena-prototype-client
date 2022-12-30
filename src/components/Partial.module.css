@@ -1,0 +1,36 @@
+.partials {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+    }
+.up{
+    position: absolute;
+    top: 0;
+    border-width: 0 0 1px 0;
+    height: 20%;
+    width: 100%;
+}
+.right{
+    position: absolute;
+    right: 0;
+    border-width: 0 0 1px 0;
+    height: 100%;
+    width: 20%;
+}
+.down{
+    position: absolute;
+    bottom: 0;
+    border-width: 0 0 1px 0;
+    height: 20%;
+    width: 100%;
+}
+.left{
+    position: absolute;
+    left: 0;
+    border-width: 0 0 1px 0;
+    height: 100%;
+    width: 20%;
+}

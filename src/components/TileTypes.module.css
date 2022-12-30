@@ -1,0 +1,36 @@
+.none {
+    background-color: initial;
+}
+
+.empty {
+    background-color: white;
+}
+
+.wall {
+    background-color: red;
+}
+
+.hole {
+    background-color: #333;
+    color: white;
+}
+
+.barrier {
+    background-color: orange;
+}
+
+.hazard {
+    background-color: cyan;
+}
+
+.pickupactive{
+    background: radial-gradient(circle,orange 34%,#fff 35%);
+}
+
+.pickupinactive{
+    background: radial-gradient(circle, rgba(255,255,255,1) 30%, rgba(255,165,0,1) 31%, rgba(255,165,0,1) 34%, rgba(255,255,255,1) 35%);
+}
+
+.diagonalwall{
+    background: linear-gradient(135deg, #fff 50%, red 51%);
+}
