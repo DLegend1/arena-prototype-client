@@ -99,7 +99,7 @@ function direction(){
 // partial := LPAR partialstring RPAR
 function partial(){
     let partialObject = {up: '', right: '',down: '', left: ''};
-    if(currentChar == '('){
+    if(currentChar === '('){
         advance();
         let partialCodes = partialString();
         switch(partialCodes.length){
