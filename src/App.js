@@ -1,29 +1,29 @@
 import './App.css';
-import { useEffect,useState } from 'react';
+import React, { useEffect,useState } from 'react';
 
 import MapComponent from './components/Map';
 
 
 import styles from './components/Map.module.css'
 import players from "./Helpers/MockData/Players";
+import newplayers from './Helpers/MockData/NewPlayers';
 
 
 function App() {
-  
+  const [gameplayers,setGamePlayers] = useState([...players]);
+  useEffect(() => {
+    setGamePlayers(players);
+  }, []);
 
   return (
+    <React.StrictMode>
+    <MapComponent players = {gameplayers} />
+    <button onClick={()=> setGamePlayers(newplayers)}> Click Me! </button>
+    </React.StrictMode>
     
-    <MapComponent players = {players} UpdatePlayers= {UpdatePlayers}/>
   );
 }
 
-function UpdatePlayers(newcoords,setPlayersCopy,PlayersCopy){
-  if (Array.isArray(PlayersCopy) && PlayersCopy.length){
-  let newPlayers = PlayersCopy.map((player,index) => 
-  { return {...player,screenspacecoords: {y: newcoords[index].y, x: newcoords[index].x}}} )
-  setPlayersCopy(newPlayers)
-  }
-}
 
 
 

@@ -8,10 +8,11 @@ import { getTileScreenSpaceCoordinates } from "../Helpers/MapHelper";
 
 
 const MapComponent = (props) => {
-  
+  //console.log("Check")
+  //console.log(props.players)
   const [PlayersCopy,setPlayersCopy] = useState([...props.players]);
-  let playercoords = PlayersCopy.map(p => p.coords);
-  console.log("Dacko")
+  let playercoords = props.players.map(p => p.coords);
+  //console.log("Dacko")
 
   
 
@@ -22,13 +23,14 @@ const MapComponent = (props) => {
   // let playersCopyAt = props.playersCopy;
 
   useEffect (() => {
+    console.log("UseEffect")
     let screenspacecoords = playercoords.map(c => getTileScreenSpaceCoordinates(c))
-    props.UpdatePlayers(screenspacecoords,setPlayersCopy,PlayersCopy)
-    console.log("Dacko2")
-  },[])
+    UpdatePlayers(screenspacecoords,PlayersCopy)
+    //console.log("Dacko2")
+  },[props])
   
   let tiledata = loadMapCode("6x6|DbH3EW|xHEH2E|3EX(EBEE)HE|EHX(EEEB)3E|2EHEHX|W3EHD");
-  console.log(tiledata)
+  //console.log(tiledata)
   return (
     <div className={styles.Container}>
 
@@ -52,12 +54,22 @@ const MapComponent = (props) => {
           })}
         </tbody>
       </table>
+      {console.log("Hello World")}
+      {console.log(PlayersCopy)}
       <OverlayComponent players={PlayersCopy}/>
 
       </div>
 
   );
   
+function UpdatePlayers(newcoords,PlayersCopy){
+  if (Array.isArray(PlayersCopy) && PlayersCopy.length){
+  let newPlayers = PlayersCopy.map((player,index) => 
+  { return {...player,screenspacecoords: {y: newcoords[index].y, x: newcoords[index].x}}} )
+  setPlayersCopy(newPlayers)
+  }
+}
+
 };
 
 
