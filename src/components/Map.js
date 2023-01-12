@@ -27,7 +27,7 @@ const MapComponent = (props) => {
     let screenspacecoords = playercoords.map(c => getTileScreenSpaceCoordinates(c))
     UpdatePlayers(screenspacecoords,PlayersCopy)
     //console.log("Dacko2")
-  },[props])
+  },[props.players])
   
   let tiledata = loadMapCode("6x6|DbH3EW|xHEH2E|3EX(EBEE)HE|EHX(EEEB)3E|2EHEHX|W3EHD");
   //console.log(tiledata)
@@ -50,16 +50,12 @@ const MapComponent = (props) => {
                 ))}
               </tr>
             );
-            
           })}
         </tbody>
       </table>
-      {console.log("Hello World")}
-      {console.log(PlayersCopy)}
       <OverlayComponent players={PlayersCopy}/>
 
       </div>
-
   );
   
 function UpdatePlayers(newcoords,PlayersCopy){
