@@ -29,7 +29,7 @@ const MapComponent = (props) => {
     //console.log("Dacko2")
   },[props.players])
   
-  let tiledata = loadMapCode("6x6|DbH3EW|xHEH2E|3EX(EBEE)HE|EHX(EEEB)3E|2EHEHX|W3EHD");
+  let tiledata = loadMapCode(props.mapString);
   //console.log(tiledata)
   return (
     <div className={styles.Container}>

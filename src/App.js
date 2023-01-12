@@ -6,21 +6,23 @@ import MapComponent from './components/Map';
 
 import styles from './components/Map.module.css'
 import {players,playersRace,playersStack} from "./Helpers/MockData/Players";
+import {og,newMap} from "./Helpers/MapStringHelper";
 import newplayers from './Helpers/MockData/NewPlayers';
 
 
 function App() {
-  const [gameplayers,setGamePlayers] = useState([...playersStack]);
+  const [gamePlayers,setGamePlayers] = useState([...playersStack]);
+  const [map,setMap] = useState(og);
   useEffect(() => {
     setGamePlayers(playersStack);
   }, []);
-
   return (
     // <React.StrictMode>
     <div>
 
-    <MapComponent players = {gameplayers} />
-    <button onClick={()=> setGamePlayers(MovePlayers(gameplayers))}> Click Me! </button>
+    <MapComponent players = {gamePlayers} mapString = {map}/>
+    <button onClick={()=> setGamePlayers(MovePlayers(gamePlayers))}> Click Me! </button>
+    <button onClick={()=> setMap(newMap)}> Change Map! </button>
     </div>
 
     // </React.StrictMode>

@@ -15,8 +15,8 @@ const playersStack = [
   { name: "Dame", color: "blue", coords: { row: 2, col: 0 } },
   { name: "Petar", color: "yellow", coords: { row: 2, col: 0 } },
   { name: "Petar", color: "green", coords: { row: 2, col: 0 } },
-  { name: "Petar", color: "cyan", coords: { row: 2, col: 0 } },
+  { name: "Petar", color: "cyan", coords: { row: 2, col: 1 } },
   { name: "Petar", color: "magenta", coords: { row: 2, col: 2 } },
-  { name: "Petar", color: "black", coords: { row: 2, col: 1 } }
+  { name: "Petar", color: "black", coords: { row: 2, col: 3} }
 ];
 export {players , playersRace,playersStack};
