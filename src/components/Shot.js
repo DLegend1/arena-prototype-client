@@ -30,17 +30,14 @@ const ShotComponent = (props) => {
       for (let shots of Object.values(shotsGroupedByTile)){
         let offsetequation = ((shots.length - 1) * displace / 2) * -1;
         let offset = offsetequation;
-        if (shots.Direction === "Up" || shots.Direction === "Bottom"){
-            for (let shot of shots){
+        for (let shot of shots){
+            if (shot.Direction === "Up" || shot.Direction === "Bottom"){
                 shot.screenspacecoords.x = shot.screenspacecoords.x + offset;
-                offset += displace;
             }
-        }
-        else {
-            for (let shot of shots){
+            else {
                 shot.screenspacecoords.y = shot.screenspacecoords.y + offset;
-                offset += displace;
             }
+            offset += displace;
         }
       }
     }
