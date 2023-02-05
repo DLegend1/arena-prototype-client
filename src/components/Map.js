@@ -4,17 +4,12 @@ import OverlayComponent from "./Overlay";
 
 import styles from './Map.module.css'
 import { loadMapCode } from "../Parser/DackosMap";
-import { getTileScreenSpaceCoordinates } from "../Helpers/MapHelper";
+import { getPlayerScreenSpaceCoordinates } from "../Helpers/MapHelper";
 
 
 const MapComponent = (props) => {
-  //console.log("Check")
-  //console.log(props.players)
   const [PlayersCopy,setPlayersCopy] = useState([...props.players]);
   let playercoords = props.players.map(p => p.coords);
-  //console.log("Dacko")
-
-  
 
   // props.setPlayers = setPlayersCopy; 
   // props.playersCopy = PlayersCopy;
@@ -24,9 +19,8 @@ const MapComponent = (props) => {
 
   useEffect (() => {
     console.log("UseEffect")
-    let screenspacecoords = playercoords.map(c => getTileScreenSpaceCoordinates(c))
+    let screenspacecoords = playercoords.map(c => getPlayerScreenSpaceCoordinates(c))
     UpdatePlayers(screenspacecoords,PlayersCopy)
-    //console.log("Dacko2")
   },[props.players])
   
   let tiledata = loadMapCode(props.mapString);
@@ -53,7 +47,7 @@ const MapComponent = (props) => {
           })}
         </tbody>
       </table>
-      <OverlayComponent players={PlayersCopy}/>
+      <OverlayComponent players={PlayersCopy} shots = {props.shots}/>
 
       </div>
   );

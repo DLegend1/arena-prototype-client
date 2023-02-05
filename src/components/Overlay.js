@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './Map.module.css'
 import PlayerComponent from "./Player";
+import ShotComponent from "./Shot";
 
 const OverlayComponent = (props) => {
   let playersGroupedByTile = {};
@@ -64,6 +65,9 @@ const OverlayComponent = (props) => {
             />
           );
         })}
+        <ShotComponent
+        shots = {props.shots}          
+        />
     </div>
   );
 };
